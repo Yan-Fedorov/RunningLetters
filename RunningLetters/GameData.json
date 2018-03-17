@@ -1,0 +1,16 @@
+﻿[
+  {
+    "TargetPositionX": "0",
+    "TargetPositionY": "0",
+    "StartPositionY": "3",
+    "StartPositionX": "10",
+    "Symbol":  "A"
+  },
+  {
+    "TargetPositionX": "1",
+    "TargetPositionY": "0",
+    "StartPositionY": "4",
+    "StartPositionX": "10",
+    "Symbol": "B"
+  }
+]
