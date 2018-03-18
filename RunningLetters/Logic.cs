@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace RunningLetters
 {
-    public class Logic
+    public interface ILogic
+    {
+        int Page { get; set; }
+        List<RunningLetter> _runningLetters { get; set; }
+    } 
+    
+    public class Logic: ILogic
     {
         
         private readonly RunningLetter _runningLetter;
@@ -18,9 +22,9 @@ namespace RunningLetters
             _gameDataService = gameDataService;
         }
         public Thread backgroundGame;
-        public List<RunningLetter> _runningLetters = new List<RunningLetter>();
+        public List<RunningLetter> _runningLetters { get; set; } = new List<RunningLetter>();
 
-        public int Page = 1;
+        public int Page { get; set; } = 1;
         private int pageCoef = 0;
         public bool FieldOver = false;
         public bool ExitGame = false;

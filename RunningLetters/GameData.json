@@ -1,14 +1,14 @@
 ﻿[
   {
-    "TargetPositionX": "0",
-    "TargetPositionY": "0",
+    "TargetPositionX": "3",
+    "TargetPositionY": "3",
     "StartPositionY": "3",
     "StartPositionX": "10",
     "Symbol":  "A"
   },
   {
-    "TargetPositionX": "1",
-    "TargetPositionY": "0",
+    "TargetPositionX": "4",
+    "TargetPositionY": "3",
     "StartPositionY": "4",
     "StartPositionX": "10",
     "Symbol": "B"

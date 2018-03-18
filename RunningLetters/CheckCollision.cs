@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace RunningLetters
 {
     public class CheckCollision
     {
-        private readonly Logic _logic;
-        private readonly RunningLetter _runningLetter;
-        public CheckCollision(Logic logic, RunningLetter runningLetter)
+        private readonly ILogic _logic;
+        private readonly IRunningLetter _runningLetter;
+        public CheckCollision(ILogic logic, IRunningLetter runningLetter)
         {
             _logic = logic;
             _runningLetter = runningLetter;
@@ -27,7 +23,6 @@ namespace RunningLetters
                 {
                     if (targetY == 27)
                     {
-                        targetY = 2;
                         _logic.Page++;
                     }
                     targetY++;

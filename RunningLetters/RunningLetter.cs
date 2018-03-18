@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RunningLetters
 {
-    public class RunningLetter
+    public interface IRunningLetter
+    {
+        void CreateLetter(List<RunningLetter> _runningLetters, int targetPosX, int targetPosY, char symbol, int page);
+    }
+    
+    public class RunningLetter: IRunningLetter
     {
 
         public RunningLetter()

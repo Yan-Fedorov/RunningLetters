@@ -13,8 +13,12 @@ namespace RunningLetters
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<Logic>().AsSelf().SingleInstance();
-            builder.RegisterType<RunningLetter>().AsSelf().SingleInstance();
+            builder.RegisterType<Logic>()
+                .AsSelf().AsImplementedInterfaces()
+                .SingleInstance();
+            builder.RegisterType<RunningLetter>()
+                .AsSelf().AsImplementedInterfaces()
+                .SingleInstance();
             builder.RegisterType<UserInteraction>().AsSelf().SingleInstance();
             builder.RegisterType<GameDataService>().AsSelf().SingleInstance();
             builder.RegisterType<CheckCollision>().AsSelf().SingleInstance();
