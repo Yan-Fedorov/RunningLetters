@@ -4,13 +4,15 @@
     "TargetPositionY": "3",
     "StartPositionY": "3",
     "StartPositionX": "10",
-    "Symbol":  "A"
+    "Symbol": "A",
+    "LetterPage": 1
   },
   {
     "TargetPositionX": "4",
     "TargetPositionY": "3",
     "StartPositionY": "4",
     "StartPositionX": "10",
-    "Symbol": "B"
+    "Symbol": "B",
+    "LetterPage": 1
   }
 ]
