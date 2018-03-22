@@ -8,7 +8,7 @@ namespace RunningLetters
 {
     public interface IRunningLetter
     {
-        void CreateLetter(List<RunningLetter> _runningLetters, int targetPosX, int targetPosY, char symbol, int page);
+        void CreateLetter(List<RunningLetter> _runningLetters, int targetPosX, int targetPosY, char symbol, int page, int? positionInArray = null);
     }
     
     public class RunningLetter: IRunningLetter
@@ -29,32 +29,37 @@ namespace RunningLetters
         public int LetterPage;
         
         private int Switcher;
-        public  void CreateLetter(List<RunningLetter> _runningLetters, int targetPosX, int targetPosY, char symbol, int page)
+        public  void CreateLetter(List<RunningLetter> _runningLetters, int targetPosX, int targetPosY, char symbol, int page, int? positionInArray = null)
         {
             Random random = new Random(); 
-            RunningLetter _runningLetter = new RunningLetter();
-            _runningLetter.Symbol = symbol;
-            _runningLetter.TargetPositionX = targetPosX;
-            _runningLetter.TargetPositionY = targetPosY;
-            _runningLetter.LetterPage = page;
+            RunningLetter runningLetter = new RunningLetter();
+            runningLetter.Symbol = symbol;
+            runningLetter.TargetPositionX = targetPosX;
+            runningLetter.TargetPositionY = targetPosY;
+            runningLetter.LetterPage = page;
             Switcher = random.Next(0, 2);
             if (Switcher == 0)
             {
                 var Y = random.Next(0, 2);
-                _runningLetter.StartPositionX = random.Next(0, 29);
+                runningLetter.StartPositionX = random.Next(0, 29);
                 if(Y == 0)
-                _runningLetter.StartPositionY = 0;
-                else _runningLetter.StartPositionY = 29;
+                runningLetter.StartPositionY = 0;
+                else runningLetter.StartPositionY = 29;
             }
             else if(Switcher == 1)
             {
                 var X = random.Next(0, 2);
                 if(X == 0)
-                _runningLetter.StartPositionX = 0;
-                else _runningLetter.StartPositionX = 29;
-                _runningLetter.StartPositionY = random.Next(0, 29);
+                runningLetter.StartPositionX = 0;
+                else runningLetter.StartPositionX = 29;
+                runningLetter.StartPositionY = random.Next(0, 29);
             }
-            _runningLetters.Add(_runningLetter);
+            if(positionInArray.HasValue)
+            {
+                _runningLetters.Insert(positionInArray.Value, runningLetter);
+            }
+            else 
+            _runningLetters.Add(runningLetter);
         }
         public bool Run(List<RunningLetter> _runningLetters)
         {

@@ -85,7 +85,7 @@ namespace Unit
         {
             int
                 page = 0,
-                pointX = 1,
+                pointX = 1, // 
                 pointY = 2;
 
 
@@ -108,7 +108,7 @@ namespace Unit
 
                 if (sym == '@')
                 {
-                    pointX = 1;
+                    pointX = 1; // 
                     IncY();
                 }
 
@@ -117,14 +117,14 @@ namespace Unit
 
                 if (sym == '◄')
                 {
-                    pointX = 1;
+                    pointX = 1; // 
                     IncY();
                     return null;
                 }
 
                 if (sym == '…')
                 {
-                    pointX = 1;
+                    pointX = 1; //
                     pointY = 2;
                     page++;
                     return null;

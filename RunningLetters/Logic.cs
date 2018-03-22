@@ -25,7 +25,6 @@ namespace RunningLetters
         public List<RunningLetter> _runningLetters { get; set; } = new List<RunningLetter>();
 
         public int Page { get; set; } = 1;
-        private int pageCoef = 0;
         public bool FieldOver = false;
         public bool ExitGame = false;
 
@@ -41,7 +40,6 @@ namespace RunningLetters
                 //Console.Clear();
                 Console.SetCursorPosition(40, 20);
                 Console.WriteLine("Page {0}", Page);
-                //pageCoef = (Page - 1) * 900;
                 for (int i = 0; i< savedLetters.Count; i++)
                 {
                     if(savedLetters[i].LetterPage == Page)

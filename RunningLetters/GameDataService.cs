@@ -34,25 +34,34 @@ namespace RunningLetters
 
         public void Save(List<RunningLetter> gameData)
         {
-            RunningLetter newLetter = new RunningLetter();
-            var games = LoadDatas();
-            foreach (var letter in gameData)
+            bool intersection = false;
+            var savedLetters = LoadDatas();
+            foreach (var currentLetter in gameData)
             {
-                foreach (var priviosLetter in games) {
-                    if (letter == priviosLetter)
+                foreach (var savedLetter in savedLetters) {
+                    if (CheckOverlay(currentLetter, savedLetter))
+                    {
+                        intersection = true; 
                         break;
-                    else if(newLetter != letter)
-                        newLetter = letter;
+                    }
                 }
-                games.Add(newLetter);
+                if(!intersection)
+                    savedLetters.Add(currentLetter);
+                intersection = false;
             }
-
             using (var file = File.Open(_path, FileMode.Create))
             using (var writer = new StreamWriter(file))
             {
-                writer.Write(JsonConvert.SerializeObject(games));
+                writer.Write(JsonConvert.SerializeObject(savedLetters));
                 writer.Flush();
             }
+        }
+
+        private bool CheckOverlay(RunningLetter currentLetter, RunningLetter savedLetter)
+        {
+            if (currentLetter.TargetPositionX != savedLetter.TargetPositionX || currentLetter.TargetPositionY != savedLetter.TargetPositionY || currentLetter.LetterPage != savedLetter.LetterPage)
+                return false;
+                return true;
         }
     }
 }
